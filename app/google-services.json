@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "349802789142",
+    "project_id": "vacination-navigator",
+    "storage_bucket": "vacination-navigator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349802789142:android:e35ebedf28de81830cf837",
+        "android_client_info": {
+          "package_name": "com.example.vacinationnavigator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349802789142-eodjkn4kbb636701feraqburj2a9uaci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwqppqlhboN4mrvakFlpiQTh9aubcfq7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "349802789142-eodjkn4kbb636701feraqburj2a9uaci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
