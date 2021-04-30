@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vacination Navigator</string>
+    <string name="app_name">Vaccination Navigator</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_login">LoginActivity</string>
     <!--
@@ -7,4 +7,13 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+
+    <!-- Those strings are used for the login screen -->
+    <string name="btnLogin"> Login </string>
+    <string name="btnFbLogin"> Login with Facebook </string>
+    <string name="btnGoogleLogin"> Login with Google </string>
+    <string name="lbEmail"> Email: </string>
+    <string name="lbPassword"> Password </string>
+    <string name = "loginHeader">Login Header </string>
+
 </resources>
