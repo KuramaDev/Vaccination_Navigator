@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vacinationnavigator.R;
 
-public class BaseActivity extends AppCompatActivity implements BaseView {
+public abstract class BaseActivity extends AppCompatActivity implements BaseView {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,4 +37,8 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     public boolean isNetworkConnected() {
         return false;
     }
+
+    protected abstract void setUpView();
+
+    protected abstract void InitializePresenter();
 }

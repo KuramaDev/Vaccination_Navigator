@@ -28,7 +28,7 @@
             android:value="true" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Ui.Login.LoginActivity"
             android:label="@string/title_activity_login"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
