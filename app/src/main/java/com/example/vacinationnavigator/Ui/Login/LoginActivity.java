@@ -48,6 +48,16 @@ public class LoginActivity extends BaseActivity implements LoginView , View.OnCl
 
     @Override
     public void onClick(View v) {
-
+        String email = Email.getText().toString();
+        String password = Password.getText().toString();
+        switch(v.getId()){
+            case R.id.login:
+                presenter.Login(email, password );
+                break;
+            case R.id.googleLogin:
+                presenter.GoogleLogin(email, password );
+                break;
+        }
     }
+
 }

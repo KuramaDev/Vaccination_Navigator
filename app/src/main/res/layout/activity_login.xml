@@ -48,6 +48,7 @@
                 android:elevation="10dp"
                 android:text="@string/btnLogin"
                 android:textColor="@color/textWhite"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/googleLogin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
@@ -64,6 +65,7 @@
                 android:background="@color/textWhite"
                 android:elevation="10dp"
                 android:text="@string/btnGoogleLogin"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
@@ -81,7 +83,8 @@
                 android:inputType="textPassword"
                 app:layout_constraintBottom_toTopOf="@+id/login"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint= "@string/emailHint"/>
 
             <EditText
                 android:id="@+id/editTextTextEmailAddress"
@@ -95,7 +98,8 @@
                 android:inputType="textEmailAddress"
                 app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint = "@string/passwordHint"/>
 
             <TextView
                 android:id="@+id/textView"

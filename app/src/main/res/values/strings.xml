@@ -15,5 +15,7 @@
     <string name="lbEmail"> Email: </string>
     <string name="lbPassword"> Password </string>
     <string name = "loginHeader">Login Header </string>
+    <string name= "emailHint" >Enter your email </string>
+    <string name= "passwordHint"> Enter your password </string>
 
 </resources>
