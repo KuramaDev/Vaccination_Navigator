@@ -14,8 +14,24 @@
     <string name="btnGoogleLogin"> Login with Google </string>
     <string name="lbEmail"> Email: </string>
     <string name="lbPassword"> Password </string>
-    <string name = "loginHeader">Login Header </string>
-    <string name= "emailHint" >Enter your email </string>
-    <string name= "passwordHint"> Enter your password </string>
+    <string name="loginHeader">Login Header </string>
+    <string name="emailHint">Enter your email </string>
+    <string name="passwordHint"> Enter your password </string>
+
+    <string name="btnRegister"> Register </string>
+    <string name="btnNext"> Next </string>
+    <string name="retypePasswordHint"> Confirm Password </string>
+    <string name="accountHeader">Account Creation </string>
+    <string name="acountSub">Fill in the details to create your account </string>
+    <string name="infoHeader" > Personal Info </string>
+    <string name="infoSub"> Fill in your personal information to complete your registration </string>
+    <string name="nameHint"> Enter your name </string>
+    <string name="amkaHint"> Enter your AMKA </string>
+    <string name="phoneHint"> Enter your phone </string>
+    <string name="ageHint">Enter your age </string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
