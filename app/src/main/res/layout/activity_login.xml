@@ -18,11 +18,12 @@
         <ImageView
             android:id="@+id/app_bar_image"
             android:layout_width="match_parent"
-            android:layout_height="192dp"
+            android:layout_height="200dp"
 
+            android:contentDescription="TODO"
             android:scaleType="centerCrop"
             android:src="@android:drawable/sym_def_app_icon"
-            app:srcCompat="@drawable/headerAppBar" />
+            app:srcCompat="@drawable/header" />
 
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -75,31 +76,31 @@
                 android:id="@+id/editTextTextPassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginBottom="70dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
                 android:width="300dp"
                 android:ems="10"
+                android:hint="@string/passwordHint"
                 android:inputType="textPassword"
                 app:layout_constraintBottom_toTopOf="@+id/login"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:hint= "@string/emailHint"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/editTextTextEmailAddress"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
                 android:width="300dp"
                 android:ems="10"
+                android:hint="@string/emailHint"
                 android:inputType="textEmailAddress"
                 app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:hint = "@string/passwordHint"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/textView"

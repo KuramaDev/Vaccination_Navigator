@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">349802789142-eodjkn4kbb636701feraqburj2a9uaci.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">349802789142</string>
+    <string name="google_api_key" translatable="false">AIzaSyCwqppqlhboN4mrvakFlpiQTh9aubcfq7g</string>
+    <string name="google_app_id" translatable="false">1:349802789142:android:e35ebedf28de81830cf837</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCwqppqlhboN4mrvakFlpiQTh9aubcfq7g</string>
+    <string name="google_storage_bucket" translatable="false">vacination-navigator.appspot.com</string>
+    <string name="project_id" translatable="false">vacination-navigator</string>
+</resources>

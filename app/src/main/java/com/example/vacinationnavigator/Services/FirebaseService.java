@@ -29,27 +29,49 @@ public class FirebaseService {
         return currentUser != null;
     }
 
-    public FirebaseUser CustomLogin(String email, String password){
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
+    public void CustomLogin(String email, String password){
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
                             currentUser = mAuth.getCurrentUser();
+                            Log.d(TAG, "Welcome back" + currentUser.getEmail());
                         }
                         else {
                             // If sign in fails, display a message to the user.
-                            Log.e(TAG, "createUserWithEmail:failure", task.getException());
+                            Log.w(TAG, "Sign in failed", task.getException());
                         }
                     }
                 });
-        return currentUser ;
     }
 
     public FirebaseUser getCurrentUser(){
         return currentUser ;
+    }
+
+    public void Logout(){
+        mAuth.signOut();
+        currentUser = null;
+    }
+
+    public void CreateUser(String email, String password){
+        mAuth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "createUserWithEmail:success");
+                    currentUser = mAuth.getCurrentUser();
+                }
+                else {
+                    // If sign in fails, display a message to the user.
+                    Log.e(TAG, "createUserWithEmail:failure", task.getException());
+                }
+            }
+        });
     }
 }
 

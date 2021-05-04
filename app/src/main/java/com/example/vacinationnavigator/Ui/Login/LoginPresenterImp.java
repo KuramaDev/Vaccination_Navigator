@@ -37,4 +37,9 @@ public class LoginPresenterImp<V extends LoginView> extends BasePresenterImp<V> 
         return user ;
     }
 
+    public void Logout(){
+        firebaseService.Logout();
+    }
+
+
 }

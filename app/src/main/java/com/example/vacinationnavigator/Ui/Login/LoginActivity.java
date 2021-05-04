@@ -32,6 +32,7 @@ public class LoginActivity extends BaseActivity implements LoginView , View.OnCl
 
         InitializePresenter();
         setUpView();
+
     }
 
     @Override
@@ -44,6 +45,7 @@ public class LoginActivity extends BaseActivity implements LoginView , View.OnCl
     protected void InitializePresenter() {
         presenter = new LoginPresenterImp<>();
         presenter.onAttach(this);
+        presenter.Logout();
     }
 
     @Override
