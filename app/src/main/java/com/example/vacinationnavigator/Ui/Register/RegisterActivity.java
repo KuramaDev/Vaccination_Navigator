@@ -37,6 +37,10 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
                 // position of the current tab and that tab
             }
         });
+
+        tabLayoutMediator.attach();
+
+
     }
 
     @Override
