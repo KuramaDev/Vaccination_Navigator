@@ -52,5 +52,6 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
         pagerAdapter = new RegisterPagerAdapter(this);
         pagerAdapter.addFragment(new AccountCreation());
         pagerAdapter.addFragment(new PersonalInfo());
+        //fffkfkfkhfkhfhkjhfk
     }
 }
