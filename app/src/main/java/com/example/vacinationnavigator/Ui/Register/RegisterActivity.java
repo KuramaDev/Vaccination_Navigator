@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 
 import com.example.vacinationnavigator.R;
 import com.example.vacinationnavigator.Ui.Base.BaseActivity;
@@ -57,6 +59,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView, Regi
     @Override
     public void OnNextClicked(String email, String password) {
         //TODO: Prepare the email and password to create a user.
+        Log.d("TEST", "Called from create account fragment");
         pagerAdapter.addFragment(new PersonalInfo());
         viewPager.setCurrentItem(2);
     }
