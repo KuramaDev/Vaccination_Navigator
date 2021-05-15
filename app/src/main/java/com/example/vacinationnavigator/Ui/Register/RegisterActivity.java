@@ -31,14 +31,14 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     @Override
     protected void setUpView() {
         viewPager.setAdapter(pagerAdapter);
-        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabs, viewPager, true, new TabLayoutMediator.TabConfigurationStrategy(){
-            @Override
-            public void onConfigureTab(TabLayout.Tab tab, int position) {
-                // position of the current tab and that tab
-            }
-        });
-
-        tabLayoutMediator.attach();
+//        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabs, viewPager, true, new TabLayoutMediator.TabConfigurationStrategy(){
+//            @Override
+//            public void onConfigureTab(TabLayout.Tab tab, int position) {
+//                // position of the current tab and that tab
+//            }
+//        });
+//
+//        tabLayoutMediator.attach();
 
 
     }
@@ -51,7 +51,6 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     private void initializeAdapter(){
         pagerAdapter = new RegisterPagerAdapter(this);
         pagerAdapter.addFragment(new AccountCreation());
-        pagerAdapter.addFragment(new PersonalInfo());
-        //fffkfkfkhfkhfhkjhfk
+        //pagerAdapter.addFragment(new PersonalInfo());
     }
 }
