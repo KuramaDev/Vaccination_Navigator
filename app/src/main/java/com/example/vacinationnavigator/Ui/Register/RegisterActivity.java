@@ -11,7 +11,7 @@ import com.example.vacinationnavigator.Ui.Base.BaseActivity;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class RegisterActivity extends BaseActivity implements RegisterView {
+public class RegisterActivity extends BaseActivity implements RegisterView, RegisterFragmentListener {
 
     ViewPager2 viewPager ;
     RegisterPagerAdapter pagerAdapter;
@@ -52,5 +52,17 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
         pagerAdapter = new RegisterPagerAdapter(this);
         pagerAdapter.addFragment(new AccountCreation());
         //pagerAdapter.addFragment(new PersonalInfo());
+    }
+
+    @Override
+    public void OnNextClicked(String email, String password) {
+        //TODO: Prepare the email and password to create a user.
+        pagerAdapter.addFragment(new PersonalInfo());
+        viewPager.setCurrentItem(2);
+    }
+
+    @Override
+    public void OnRegisteredClicked(String name, String amka, String phone, String age) {
+        //TODO: Register information to firebase.
     }
 }
