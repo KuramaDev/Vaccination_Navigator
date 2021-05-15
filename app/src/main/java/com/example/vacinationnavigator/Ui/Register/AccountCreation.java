@@ -75,6 +75,7 @@ public class AccountCreation extends Fragment implements View.OnClickListener {
         password =(EditText) root.findViewById(R.id.et_password);
         repassword = (EditText) root.findViewById(R.id.et_repassword);
         next = (Button) root.findViewById(R.id.btn_next);
+        next.setOnClickListener(this);
         return root;
     }
 
