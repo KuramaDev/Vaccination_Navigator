@@ -19,6 +19,7 @@ import static android.content.ContentValues.TAG;
 public class FirebaseService {
     private FirebaseAuth mAuth ;
     private FirebaseUser currentUser;
+    private boolean flag  ;
 
     public FirebaseService(){
         mAuth = FirebaseAuth.getInstance();
@@ -56,7 +57,8 @@ public class FirebaseService {
         currentUser = null;
     }
 
-    public void CreateUser(String email, String password){
+    public boolean CreateUser(String email, String password){
+
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
             @Override
@@ -65,13 +67,17 @@ public class FirebaseService {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success");
                     currentUser = mAuth.getCurrentUser();
+                    flag = true;
                 }
                 else {
                     // If sign in fails, display a message to the user.
                     Log.e(TAG, "createUserWithEmail:failure", task.getException());
+                    flag = false ;
                 }
             }
         });
+
+        return flag;
     }
 }
 
