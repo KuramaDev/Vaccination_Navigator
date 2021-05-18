@@ -20,9 +20,15 @@ public class FirebaseService {
     private FirebaseAuth mAuth ;
     private FirebaseUser currentUser;
     private boolean flag  ;
+    FireBaseReceiver receiver ;
 
     public FirebaseService(){
+
         mAuth = FirebaseAuth.getInstance();
+    }
+
+    public void AttachReceiver(FireBaseReceiver listener){
+        this.receiver = listener;
     }
 
     public boolean IsUserSignedIn(){
@@ -57,7 +63,7 @@ public class FirebaseService {
         currentUser = null;
     }
 
-    public boolean CreateUser(String email, String password){
+    public void CreateUser(String email, String password){
 
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
@@ -67,18 +73,20 @@ public class FirebaseService {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success");
                     currentUser = mAuth.getCurrentUser();
-                    flag = true;
+                    receiver.onRegisterComplete(currentUser.getUid(),"Registration Comfirmed");
                 }
                 else {
                     // If sign in fails, display a message to the user.
                     Log.e(TAG, "createUserWithEmail:failure", task.getException());
-                    flag = false ;
+                    receiver.onRegisterComplete(null,task.getException().getLocalizedMessage());
                 }
             }
         });
 
-        return flag;
+
     }
+
+
 }
 
 
