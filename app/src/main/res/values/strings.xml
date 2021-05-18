@@ -23,7 +23,7 @@
     <string name="retypePasswordHint"> Confirm Password </string>
     <string name="accountHeader">Account Creation </string>
     <string name="acountSub">Fill in the details to create your account </string>
-    <string name="infoHeader" > Personal Info </string>
+    <string name="infoHeader"> Personal Info </string>
     <string name="infoSub"> Fill in your personal information to complete your registration </string>
     <string name="nameHint"> Enter your name </string>
     <string name="amkaHint"> Enter your AMKA </string>
