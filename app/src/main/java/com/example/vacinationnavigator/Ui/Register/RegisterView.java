@@ -6,4 +6,5 @@ public interface RegisterView extends BaseView {
 
    void RegisterCompleted();
    void RegisterFailure(String message);
+   void ShowConfirmation();
 }

@@ -5,26 +5,36 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.vacinationnavigator.Model.UserInfo;
 import com.example.vacinationnavigator.Ui.Login.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.Executor;
 
 import static android.content.ContentValues.TAG;
 
 public class FirebaseService {
-    private FirebaseAuth mAuth ;
+    private final FirebaseAuth mAuth ;
     private FirebaseUser currentUser;
     private boolean flag  ;
     FireBaseReceiver receiver ;
 
+    private DatabaseReference dbReference;
+    private DatabaseReference tbUserInfoEndPoint;
+    private DatabaseReference tbVacCentersEndpoint;
+
     public FirebaseService(){
 
         mAuth = FirebaseAuth.getInstance();
+        dbReference = FirebaseDatabase.getInstance().getReference();
+        tbUserInfoEndPoint = dbReference.child("UserInfo/");
+        tbVacCentersEndpoint = dbReference.child("Centers/");
     }
 
     public void AttachReceiver(FireBaseReceiver listener){
@@ -84,6 +94,10 @@ public class FirebaseService {
         });
 
 
+    }
+
+    public void AddUserinfo(UserInfo info){
+        tbUserInfoEndPoint.child(currentUser.getUid()).setValue(info);
     }
 
 

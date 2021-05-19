@@ -1,5 +1,6 @@
 package com.example.vacinationnavigator.Ui.Register;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -64,7 +65,6 @@ public class RegisterActivity extends BaseActivity implements RegisterView, Regi
     private void initializeAdapter(){
         pagerAdapter = new RegisterPagerAdapter(this);
         pagerAdapter.addFragment(new AccountCreation());
-        //pagerAdapter.addFragment(new PersonalInfo());
     }
 
     @Override
@@ -79,6 +79,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView, Regi
     @Override
     public void OnRegisteredClicked(String name, String amka, String phone, String age) {
         //TODO: Register information to firebase.
+        presenter.onAddPersonalInfo(name,amka,phone,age);
     }
 
     @Override
@@ -87,10 +88,16 @@ public class RegisterActivity extends BaseActivity implements RegisterView, Regi
         pagerAdapter.notifyItemInserted(1);
         viewPager.setCurrentItem(1,true);
         tabs.setClickable(true);
+
     }
 
     @Override
     public void RegisterFailure(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG ).show();
+    }
+
+    @Override
+    public void ShowConfirmation() {
+        Toast.makeText(this , "Your account creation completed succesfully ", Toast.LENGTH_LONG).show();
     }
 }

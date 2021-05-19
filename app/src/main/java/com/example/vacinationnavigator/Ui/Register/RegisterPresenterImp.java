@@ -2,6 +2,7 @@ package com.example.vacinationnavigator.Ui.Register;
 
 import android.util.Log;
 
+import com.example.vacinationnavigator.Model.UserInfo;
 import com.example.vacinationnavigator.Services.FireBaseReceiver;
 import com.example.vacinationnavigator.Services.FirebaseService;
 import com.example.vacinationnavigator.Ui.Base.BasePresenterImp;
@@ -10,6 +11,7 @@ public class RegisterPresenterImp<V extends RegisterView> extends BasePresenterI
 
     V view ;
     FirebaseService firebaseService ;
+    UserInfo  userInfo ;
 
 
     public RegisterPresenterImp () {
@@ -37,8 +39,13 @@ public class RegisterPresenterImp<V extends RegisterView> extends BasePresenterI
         }
     }
 
-    @Override
-    public void onLoginComplete(String id) {
-
+    public void onAddPersonalInfo( String name, String amka, String phone, String age){
+        userInfo = new UserInfo();
+        userInfo.setName(name);
+        userInfo.setAge(age);
+        userInfo.setAmka(amka);
+        userInfo.setPhone(phone);
+        firebaseService.AddUserinfo(userInfo);
+        view.ShowConfirmation();
     }
 }
