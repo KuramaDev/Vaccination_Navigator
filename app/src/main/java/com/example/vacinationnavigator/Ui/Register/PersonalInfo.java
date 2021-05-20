@@ -1,5 +1,6 @@
 package com.example.vacinationnavigator.Ui.Register;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.vacinationnavigator.R;
 
@@ -15,7 +18,14 @@ import com.example.vacinationnavigator.R;
  * Use the {@link PersonalInfo#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PersonalInfo extends Fragment {
+public class PersonalInfo extends Fragment implements View.OnClickListener{
+
+    Button register;
+    EditText name;
+    EditText phone;
+    EditText amka;
+    EditText age;
+    RegisterFragmentListener listener;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +71,23 @@ public class PersonalInfo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal_info, container, false);
+
+        View root =  inflater.inflate(R.layout.fragment_personal_info, container, false);
+        name  =(EditText) root.findViewById(R.id.name);
+        phone =(EditText) root.findViewById(R.id.phone);
+        amka = (EditText) root.findViewById(R.id.amka);
+        age = (EditText) root.findViewById(R.id.age);
+        register = (Button) root.findViewById(R.id.register);
+        register.setOnClickListener(this);
+        return root;
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        listener = (RegisterFragmentListener) context;
+    }
+    @Override
+    public void onClick(View view) {
+        listener.OnRegisteredClicked(name.getText().toString(),phone.getText().toString(),amka.getText().toString(),age.getText().toString());
     }
 }
