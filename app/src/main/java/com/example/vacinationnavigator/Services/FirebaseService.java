@@ -1,21 +1,24 @@
 package com.example.vacinationnavigator.Services;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.vacinationnavigator.Model.Center;
 import com.example.vacinationnavigator.Model.UserInfo;
-import com.example.vacinationnavigator.Ui.Login.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import java.util.concurrent.Executor;
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -23,7 +26,9 @@ public class FirebaseService {
     private final FirebaseAuth mAuth ;
     private FirebaseUser currentUser;
     private boolean flag  ;
-    FireBaseReceiver receiver ;
+    AuthRepsonse receiver ;
+
+    rtDBResponse rtDBResponse;
 
     private DatabaseReference dbReference;
     private DatabaseReference tbUserInfoEndPoint;
@@ -37,9 +42,10 @@ public class FirebaseService {
         tbVacCentersEndpoint = dbReference.child("Centers/");
     }
 
-    public void AttachReceiver(FireBaseReceiver listener){
+    public void AttachAuthReceiver(AuthRepsonse listener){
         this.receiver = listener;
     }
+    public void AttachRtDBReceiver(BaseService listener) {this.rtDBResponse =(rtDBResponse) listener;}
 
     public boolean IsUserSignedIn(){
         currentUser = mAuth.getCurrentUser();
@@ -99,6 +105,26 @@ public class FirebaseService {
     public void AddUserinfo(UserInfo info){
         tbUserInfoEndPoint.child(currentUser.getUid()).setValue(info);
     }
+
+    public void getAllCenters(){
+        List<Center> center = new ArrayList<>();
+        tbVacCentersEndpoint.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull  DataSnapshot snapshot) {
+                for(DataSnapshot centersSnapshot : snapshot.getChildren()){
+                    center.add (centersSnapshot.getValue(Center.class));
+                }
+                rtDBResponse.CentersFetched(center);
+            }
+
+            @Override
+            public void onCancelled(@NonNull  DatabaseError error) {
+                rtDBResponse.onError(error.getMessage());
+            }
+        });
+    }
+
+
 
 
 }

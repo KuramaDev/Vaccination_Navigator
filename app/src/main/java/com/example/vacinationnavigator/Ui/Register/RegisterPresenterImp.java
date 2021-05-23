@@ -1,13 +1,11 @@
 package com.example.vacinationnavigator.Ui.Register;
 
-import android.util.Log;
-
 import com.example.vacinationnavigator.Model.UserInfo;
-import com.example.vacinationnavigator.Services.FireBaseReceiver;
+import com.example.vacinationnavigator.Services.AuthRepsonse;
 import com.example.vacinationnavigator.Services.FirebaseService;
 import com.example.vacinationnavigator.Ui.Base.BasePresenterImp;
 
-public class RegisterPresenterImp<V extends RegisterView> extends BasePresenterImp<V> implements RegisterPresenter<V> , FireBaseReceiver {
+public class RegisterPresenterImp<V extends RegisterView> extends BasePresenterImp<V> implements RegisterPresenter<V> , AuthRepsonse {
 
     V view ;
     FirebaseService firebaseService ;
@@ -16,7 +14,7 @@ public class RegisterPresenterImp<V extends RegisterView> extends BasePresenterI
 
     public RegisterPresenterImp () {
         firebaseService = new FirebaseService();
-        firebaseService.AttachReceiver(this);
+        firebaseService.AttachAuthReceiver(this);
     }
 
     public void  RegisterUser (String email ,String password){
