@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.vacinationnavigator.Model.Center;
 import com.example.vacinationnavigator.R;
 import com.example.vacinationnavigator.Ui.Base.BaseActivity;
 import com.example.vacinationnavigator.Ui.Main.Centers.CenterFragment;
@@ -18,11 +19,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
 
-public class HomeAcivity extends BaseActivity implements HomeView {
+import java.util.List;
+
+public class HomeAcivity extends BaseActivity implements HomeView , HomeFragmentListener {
 
     HomeFragment homeFragment;
     CenterFragment centerFragment;
     BottomNavigationView bottomNavigationView;
+    HomePresenterImp<HomeView> presenter;
 
 
     @Override
@@ -33,6 +37,7 @@ public class HomeAcivity extends BaseActivity implements HomeView {
         homeFragment = new HomeFragment();
         centerFragment = new CenterFragment();
 
+        InitializePresenter();
         setUpView();
 
     }
@@ -60,7 +65,8 @@ public class HomeAcivity extends BaseActivity implements HomeView {
 
     @Override
     protected void InitializePresenter() {
-
+        presenter = new HomePresenterImp<HomeView>();
+        presenter.onAttach(this);
     }
 
     private void setCurrentFragment(Fragment fragment){
@@ -70,4 +76,13 @@ public class HomeAcivity extends BaseActivity implements HomeView {
        fragmentTransaction.commit();
     }
 
+    @Override
+    public void FetchCenters() {
+        presenter.getAllCenters();
+    }
+
+    @Override
+    public void CentersFetched(List<Center> list) {
+        centerFragment.CentersLoaded(list);
+    }
 }

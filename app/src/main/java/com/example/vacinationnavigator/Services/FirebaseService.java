@@ -34,6 +34,8 @@ public class FirebaseService {
     private DatabaseReference tbUserInfoEndPoint;
     private DatabaseReference tbVacCentersEndpoint;
 
+    List<Center> center = new ArrayList<>();
+
     public FirebaseService(){
 
         mAuth = FirebaseAuth.getInstance();
@@ -107,13 +109,14 @@ public class FirebaseService {
     }
 
     public void getAllCenters(){
-        List<Center> center = new ArrayList<>();
+
         tbVacCentersEndpoint.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull  DataSnapshot snapshot) {
                 for(DataSnapshot centersSnapshot : snapshot.getChildren()){
                     center.add (centersSnapshot.getValue(Center.class));
                 }
+
                 rtDBResponse.CentersFetched(center);
             }
 
