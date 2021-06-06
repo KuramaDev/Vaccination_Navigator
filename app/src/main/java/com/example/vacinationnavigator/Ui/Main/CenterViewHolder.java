@@ -1,14 +1,15 @@
 package com.example.vacinationnavigator.Ui.Main;
 
+import android.net.wifi.aware.PublishConfig;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.vacinationnavigator.R;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CenterViewHolder extends RecyclerView.ViewHolder {
@@ -17,6 +18,7 @@ public class CenterViewHolder extends RecyclerView.ViewHolder {
     public TextView description;
     public TextView city ;
     public TextView address ;
+    public CardView rv;
 
     public CenterViewHolder(@NonNull @NotNull View itemView) {
         super(itemView);
@@ -25,6 +27,6 @@ public class CenterViewHolder extends RecyclerView.ViewHolder {
         description = (TextView) itemView.findViewById(R.id.tv_desc);
         city = (TextView) itemView.findViewById(R.id.tv_city);
         address = (TextView) itemView.findViewById(R.id.tv_address);
-
+        rv = (CardView ) itemView.findViewById(R.id.cv);
     }
 }

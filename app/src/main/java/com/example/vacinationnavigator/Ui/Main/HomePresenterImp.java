@@ -47,4 +47,19 @@ class HomePresenterImp<V extends HomeView> extends BasePresenterImp<V> implement
     public void onError(String message) {
 
     }
+    public void IsUserSignedIn(){
+        if(firebaseService.IsUserSignedIn()){
+            Log.d("User is" , String.valueOf(firebaseService.IsUserSignedIn()));
+
+        }
+        else{
+            Log.d("WTF", "WTF");
+            getView().OpenLogin();
+        }
+    }
+
+    public void Logout(){
+        firebaseService.Logout();
+        getView().OpenLogin();
+    }
 }

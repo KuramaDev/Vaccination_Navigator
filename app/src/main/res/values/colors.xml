@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#0F9468</color>
+    <color name="colorPrimaryDark">#001A11</color>
+    <color name="colorAccent">#00FAA7</color>
 
     <color name="black_effective">#2a2a2a</color>
     <color name="transparent">#00000000</color>
     <color name="btnColor"> #3F81A3 </color>
     <color name="textWhite"> #ffffff </color>
+
+    <color name="BaseColor">#0F9468</color>
+    <color name="BaseColorDarker">#001A11</color>
+    <color name="BaseColorLighter">#00FAA7</color>
+    <color name="SecondaryColor">#941D00</color>
+    <color name="SoftBackground">#BEFFF3 </color>
+    <color name="WarningColor">#ffcc00 </color>>
 </resources>

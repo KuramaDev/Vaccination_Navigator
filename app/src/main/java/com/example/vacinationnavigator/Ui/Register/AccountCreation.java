@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.vacinationnavigator.R;
 
@@ -88,7 +89,13 @@ public class AccountCreation extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(listener != null){
-            listener.OnNextClicked(email.getText().toString(), password.getText().toString());
+            if(!email.getText().toString().isEmpty() && email.getText().toString() != null && !password.getText().toString().isEmpty() && password.getText().toString() != null
+                    && !repassword.getText().toString().isEmpty() && repassword.getText().toString() != null) {
+                listener.OnNextClicked(email.getText().toString(), password.getText().toString(), repassword.getText().toString());
+            }
+            else{
+                Toast.makeText(getActivity(), "Fields are mandatory", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }

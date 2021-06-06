@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface HomeView extends BaseView {
     void CentersFetched (List<Center> list);
+    void OpenLogin();
 }

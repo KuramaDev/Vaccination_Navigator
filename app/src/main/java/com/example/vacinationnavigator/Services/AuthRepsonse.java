@@ -6,5 +6,5 @@ import java.util.List;
 
 public  interface AuthRepsonse extends  BaseService {
     void onRegisterComplete(String id , String Message);
-
+    //void onLoginResponse();
 }

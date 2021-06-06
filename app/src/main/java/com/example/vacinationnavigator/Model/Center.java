@@ -5,7 +5,8 @@ public class Center {
     String Address ;
     String City;
     String Description;
-    Coordinates coords;
+    double Latitude;
+    double Longitude;
 
     public String getTitle() {
         return Title;
@@ -37,6 +38,22 @@ public class Center {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public double getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        Latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        Longitude = longitude;
     }
 }
 

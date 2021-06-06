@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.vacinationnavigator.Model.Center;
 import com.example.vacinationnavigator.R;
@@ -17,14 +18,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CentersAdapter extends RecyclerView.Adapter<CenterViewHolder> {
+public class CentersAdapter extends RecyclerView.Adapter<CenterViewHolder>  {
 
     private List<Center> centers ;
+    private onItemClickedListener itemListener;
 
-    public CentersAdapter (List<Center> centers){
+    public CentersAdapter (List<Center> centers,onItemClickedListener listener){
         this.centers = centers;
+        this.itemListener = listener;
     }
 
     @NonNull
@@ -47,11 +51,20 @@ public class CentersAdapter extends RecyclerView.Adapter<CenterViewHolder> {
         TextView description = holder.description;
         TextView address = holder.address;
         TextView city = holder.city;
-
+        CardView cv = holder.rv;
         tittle.setText(center.getTitle());
         description.setText(center.getDescription());
         address.setText(center.getAddress());
         city.setText(center.getCity());
+        cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                    Log.d("Item Clicked","From Adapter");
+                    itemListener.onItemClicked(center);
+
+            }
+        });
     }
 
     @Override
@@ -59,5 +72,11 @@ public class CentersAdapter extends RecyclerView.Adapter<CenterViewHolder> {
 
         return centers.size();
 
+    }
+
+
+
+    public interface onItemClickedListener{
+        void onItemClicked(Center center);
     }
 }

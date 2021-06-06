@@ -14,7 +14,7 @@
     <string name="btnGoogleLogin"> Login with Google </string>
     <string name="lbEmail"> Email: </string>
     <string name="lbPassword"> Password </string>
-    <string name="loginHeader">Login Header </string>
+    <string name="loginHeader">Login to your account </string>
     <string name="emailHint">Enter your email </string>
     <string name="passwordHint"> Enter your password </string>
 
@@ -32,7 +32,13 @@
 
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Τα εμβόλια προλαμβάνουν νόσους οι οποίες σε διαφορετική περίπτωση θα μπορούσαν να προκαλέσουν σοβαρά προβλήματα υγείας, μόνιμη αναπηρία ή ακόμη και θάνατο. Τα εμβόλια χορηγούνται σε εκατοντάδες εκατομμύρια ανθρώπους σε όλο τον κόσμο κάθε χρόνο με σκοπό την προστασία από τις σοβαρές ασθένειες.
+
+Για παράδειγμα, στη διάρκεια του 2018 περίπου το 86 % των βρεφών παγκοσμίως έλαβαν τρεις δόσεις του εμβολίου που προστατεύει από τη διφθερίτιδα, τον τέτανο και τον κοκκύτη (DTP), και το 85 % των βρεφών ανά τον κόσμο έλαβαν τρεις δόσεις εμβολίου κατά της πολιομυελίτιδας (1).
+
+Σε αντίθεση με τη θεραπεία που παρέχεται για την ίαση μιας ασθένειας, τα εμβόλια χορηγούνται συνήθως σε υγιή άτομα για την πρόληψη της ασθένειας. Ως εκ τούτου, τα μακροπρόθεσμα οφέλη του εμβολιασμού μπορεί να μην είναι άμεσα εμφανή.
+
+Πολλές μεταδοτικές ασθένειες σήμερα είναι πολύ σπάνιες χάρη στον εμβολιασμό, με αποτέλεσμα να λησμονούνται μερικές φορές οι αρνητικές συνέπειες των ασθενειών αυτών. Εάν οι άνθρωποι σταματούσαν να εμβολιάζονται, πολλές από τις εν λόγω ασθένειες και οι εστίες τους θα μπορούσαν και πάλι να κάνουν την εμφάνισή τους.</string>
     <string name="title_activity_cennters_list">Map</string>
     <string name="title_activity_home">MainActivity</string>
     <string name="title_home">Home</string>

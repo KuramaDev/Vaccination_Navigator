@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.vacinationnavigator.R;
 import com.example.vacinationnavigator.Ui.Base.BaseActivity;
+import com.example.vacinationnavigator.Ui.Login.LoginActivity;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -68,10 +70,15 @@ public class RegisterActivity extends BaseActivity implements RegisterView, Regi
     }
 
     @Override
-    public void OnNextClicked(String email, String password) {
+    public void OnNextClicked(String email, String password, String repass) {
         //TODO: Prepare the email and password to create a user.
         Log.d("TEST", "Called from create account fragment");
-        presenter.RegisterUser(email,password);
+        if(password.equals(repass)) {
+            presenter.RegisterUser(email, password);
+        }
+        else{
+            Toast.makeText(this, "Passwords don't match", Toast.LENGTH_LONG).show();
+        }
 
 
     }
@@ -99,5 +106,11 @@ public class RegisterActivity extends BaseActivity implements RegisterView, Regi
     @Override
     public void ShowConfirmation() {
         Toast.makeText(this , "Your account creation completed succesfully ", Toast.LENGTH_LONG).show();
+        OpenRegister();
+    }
+
+    void OpenRegister(){
+        Intent register = new Intent(this, LoginActivity.class);
+        startActivity(register);
     }
 }
